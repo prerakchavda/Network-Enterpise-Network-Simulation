@@ -1,19 +1,46 @@
-I went into the IO and I configured the terminal and enabled routing globally by putting in IP routing and then I went into each interface and edited them with a description I gave them a static IP address with their subnet being slash 30 so that only the quote unquote ISP and router have each AIP Which prevents then I did no shutdown on the ports to make sure that they are on
+Phase 1: Base ISP & Edge Connectivity (Day 1)
+Objective
+
+The goal of Day 1 was to establish the core routing environment and simulate external internet connectivity (ISP) to ensure the Edge routers can reach public-facing services.
+Task 1: ISP Core Initialization (IOU)
+
+The backbone of the simulation starts with the IOU (IOS on Unix) instance. To transform the device into a functional gateway, the following global and interface-level configurations were applied:
+
+    Global Routing: Enabled ip routing to allow the device to process Layer 3 traffic.
+
+    Terminal Configuration: Optimized the VTY lines and console for administrative access.
+
+    Point-to-Point Links: Configured interfaces with a /30 subnet mask (255.255.255.252).
+
+        Design Choice: Using a /30 ensures only two usable IP addresses (one for the ISP and one for the Router), which conserves address space and mimics real-world WAN link standards.
+
+    Documentation: Applied interface descriptions to maintain clear labeling of network segments.
+
 ![[Editing Interfaces in IOU.png]]
+Task 2: Simulating Public Services
 
+To validate the routing logic without an actual internet breakout, a Loopback Interface was created to simulate Google’s Public DNS (8.8.8.8).
 
+    This acts as our "North Star" for connectivity testing throughout the project.
 
-
-This is where i made the loopback be 8.8.8.8 so that it simulates Google
+    By making this reachable, we confirm that our internal routing tables are correctly propagating external routes.
 
 ![[Loopback Ip change.png]]
+Task 3: Edge Router Integration (NY-EDGE-1)
 
+With the ISP core ready, I moved to the first site gateway: NY-EDGE-1.
 
+    Interface Alignment: Manually configured the WAN-facing interface to match the subnet parameters defined in the IOU ISP core.
 
-Then I hoped on NY-EDGE-1
+    Link Activation: Executed the no shutdown command on all relevant ports. This transitioned the physical and data-link layers to an "Up/Up" status, finalizing the physical handshake between the Edge and the ISP.
+
 ![[Setting up edge routers.png]]
-And configred the ip for int 1 to have the same one set in the IOU and did that for rest of the routers
+Task 4: Connectivity Verification (The Ping Test)
 
+The final milestone for Day 1 was verifying end-to-end reachability.
 
-made sure to test by pinging 8.8.8.8:
+    Test: A standard ICMP ping was issued from NY-EDGE-1 to the simulated Google DNS address (8.8.8.8).
+
+    Result: The test was successful, confirming that the Edge router can traverse the ISP link to reach external resources.
+
 ![[Ping test on 8.8.8.8 from edge router.png]]
