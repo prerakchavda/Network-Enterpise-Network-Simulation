@@ -1,4 +1,4 @@
-## Phase 1: Base ISP & Edge Connectivity (Day 1)
+## Phase 1: Base ISP & Edge Connectivity 
 Objective
 
 The goal of Day 1 was to establish the core routing environment and simulate external internet connectivity (ISP) to ensure the Edge routers can reach public-facing services.
