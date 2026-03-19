@@ -16,7 +16,7 @@ The backbone of the simulation starts with the IOU (IOS on Unix) instance. To tr
 
     Documentation: Applied interface descriptions to maintain clear labeling of network segments.
 
-![ISP Config](networking-project/screenshots/Editing%20Interfaces%20in%20IOU.png)
+![ISP Config](Networking Project/Screenshots/Editing Interfaces in IOU.png)
 Task 2: Simulating Public Services
 
 To validate the routing logic without an actual internet breakout, a Loopback Interface was created to simulate Google’s Public DNS (8.8.8.8).
