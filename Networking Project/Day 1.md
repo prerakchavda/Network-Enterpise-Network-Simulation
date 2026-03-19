@@ -16,7 +16,7 @@ The backbone of the simulation starts with the IOU (IOS on Unix) instance. To tr
 
     Documentation: Applied interface descriptions to maintain clear labeling of network segments.
 
-![[Editing Interfaces in IOU.png]]
+![ISP Config](networking-project/screenshots/Editing%20Interfaces%20in%20IOU.png)
 Task 2: Simulating Public Services
 
 To validate the routing logic without an actual internet breakout, a Loopback Interface was created to simulate Google’s Public DNS (8.8.8.8).
@@ -25,8 +25,7 @@ To validate the routing logic without an actual internet breakout, a Loopback In
 
     By making this reachable, we confirm that our internal routing tables are correctly propagating external routes.
 
-![[Loopback Ip change.png]]
-Task 3: Edge Router Integration (NY-EDGE-1)
+![Loopback Config](networking-project/screenshots/Loopback%20Ip%20change.png)Task 3: Edge Router Integration (NY-EDGE-1)
 
 With the ISP core ready, I moved to the first site gateway: NY-EDGE-1.
 
@@ -34,8 +33,7 @@ With the ISP core ready, I moved to the first site gateway: NY-EDGE-1.
 
     Link Activation: Executed the no shutdown command on all relevant ports. This transitioned the physical and data-link layers to an "Up/Up" status, finalizing the physical handshake between the Edge and the ISP.
 
-![[Setting up edge routers.png]]
-Task 4: Connectivity Verification (The Ping Test)
+![Edge Setup](networking-project/screenshots/Setting%20up%20edge%20routers.png)Task 4: Connectivity Verification (The Ping Test)
 
 The final milestone for Day 1 was verifying end-to-end reachability.
 
@@ -43,4 +41,4 @@ The final milestone for Day 1 was verifying end-to-end reachability.
 
     Result: The test was successful, confirming that the Edge router can traverse the ISP link to reach external resources.
 
-![[Ping test on 8.8.8.8 from edge router.png]]
+![Ping Test](networking-project/screenshots/Ping%20test%20on%208.8.8.8%20from%20edge%20router.png)
