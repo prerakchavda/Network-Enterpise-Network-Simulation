@@ -4,6 +4,9 @@ Objective
 The goal of Day 1 was to establish the core routing environment and simulate external internet connectivity (ISP) to ensure the Edge routers can reach public-facing services.
 Task 1: ISP Core Initialization (IOU)
 
+<img width="741" height="311" alt="image" src="https://github.com/user-attachments/assets/aabdf7d4-880d-43d2-9cbf-9a68d1001c8c" />
+
+
 The backbone of the simulation starts with the IOU (IOS on Unix) instance. To transform the device into a functional gateway, the following global and interface-level configurations were applied:
 
     Global Routing: Enabled ip routing to allow the device to process Layer 3 traffic.
